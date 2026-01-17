@@ -1,0 +1,25 @@
+# Node
+/build
+/target
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.claude/
+AGENTS.MD
+
+# Sensitive Configuration
+*.key
+*.pem
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.bak

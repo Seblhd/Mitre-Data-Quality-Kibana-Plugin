@@ -1,0 +1,7 @@
+{
+  "prefix": "mitreDataQuality",
+  "paths": {
+    "mitreDataQuality": "."
+  },
+  "translations": ["translations/ja-JP.json"]
+}

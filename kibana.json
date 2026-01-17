@@ -1,0 +1,14 @@
+{
+  "id": "mitreDataQuality",
+  "version": "0.1.0",
+  "kibanaVersion": "kibana",
+  "owner": {
+    "name": "Sebastien Lehuede",
+    "githubTeam": "https://github.com/Seblhd"
+  },
+  "description": "Provider MITRE Attack data quality coverage.",
+  "server": true,
+  "ui": true,
+  "requiredPlugins": ["navigation", "alerting"],
+  "optionalPlugins": []
+}
