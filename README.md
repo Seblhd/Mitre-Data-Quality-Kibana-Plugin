@@ -119,7 +119,7 @@ bin/kibana-plugin install file:///local/path/to/mitreDataQuality-9.2.3.zip
 You can also use the pre-built plugin available on GitHub:
 
 ```bash
-bin/kibana-plugin install https://github.com/Seblhd/mitre-data-quality-kibana-plugin/archive/refs/tags/mitreDataQuality-9.2.3.zip
+bin/kibana-plugin install https://github.com/Seblhd/Mitre-Data-Quality-Kibana-Plugin/releases/download/9.2.3/mitreDataQuality-9.2.3.zip
 ```
 
 ### Step 5: Access the Plugin
