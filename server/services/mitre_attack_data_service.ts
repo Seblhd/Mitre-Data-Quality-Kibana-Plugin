@@ -90,16 +90,22 @@ export class MitreAttackDataService {
 
         JSON.parse(data);
 
-        const dirPath = path.dirname(LOCAL_FILE_PATH);
-        if (!fs.existsSync(dirPath)) {
-          fs.mkdirSync(dirPath, { recursive: true });
+        try {
+          const dirPath = path.dirname(LOCAL_FILE_PATH);
+          if (!fs.existsSync(dirPath)) {
+            fs.mkdirSync(dirPath, { recursive: true });
+          }
+
+          fs.writeFileSync(LOCAL_FILE_PATH, data, 'utf-8');
+
+          this.logger.info(
+            `Successfully downloaded and saved MITRE ATT&CK data (${(totalBytes / 1024 / 1024).toFixed(2)} MB) to ${LOCAL_FILE_PATH}`
+          );
+        } catch (writeError) {
+          this.logger.warn(
+            `Cannot write MITRE ATT&CK data to ${LOCAL_FILE_PATH} (permission denied). Using bundled data file.`
+          );
         }
-
-        fs.writeFileSync(LOCAL_FILE_PATH, data, 'utf-8');
-
-        this.logger.info(
-          `Successfully downloaded and saved MITRE ATT&CK data (${(totalBytes / 1024 / 1024).toFixed(2)} MB) to ${LOCAL_FILE_PATH}`
-        );
         resolve();
       } catch (error) {
         reject(

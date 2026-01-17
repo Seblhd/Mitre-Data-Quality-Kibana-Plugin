@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "bootstrap": "yarn kbn bootstrap && yarn install",
-    "build": "yarn plugin-helpers build",
+    "build": "./scripts/build.sh",
+    "build:bundles": "node --require=@kbn/babel-register/install scripts/build_bundles.js",
+    "build:plugin-only": "yarn plugin-helpers build",
     "dev": "yarn plugin-helpers dev",
     "plugin-helpers": "node ../../scripts/plugin_helpers",
     "kbn": "node ../../scripts/kbn"

@@ -68,35 +68,45 @@ git checkout v9.2.3
 
 > **Note:** Replace `v9.2.3` with your actual Kibana version.
 
-### Step 2: Build the Plugin
+### Step 2: Clone and Prepare the Plugin
 
 ```bash
 cd plugins
 git clone https://github.com/Seblhd/mitre-data-quality-kibana-plugin mitre_data_quality
+```
+
+### Step 3: Build the Plugin
+
+The custom build script automatically compiles browser bundles and includes them in the distribution:
+
+```bash
+cd plugins/mitre_data_quality
 nvm use
 yarn build
 ```
 
+When prompted, enter your Kibana version (e.g., `9.2.3`).
+
 **Expected build output:**
 
 ```
-yarn run v1.22.22
-$ yarn plugin-helpers build
-$ node ../../scripts/plugin_helpers build
+=== MITRE Data Quality Plugin Build ===
+
+Step 1: Running plugin-helpers build...
 ? What version of Kibana are you building for? 9.2.3
- info deleting the build and target directories
- info building required artifacts for the optimizer
- info running @kbn/optimizer
- info compressing js and css bundles found at plugins/mitre_data_quality/build/kibana/mitreDataQuality/target/public to brotli
-ERROR Error: ENOENT: no such file or directory, scandir '/Users/sebastien/Nybble-Dev/kibana/plugins/mitre_data_quality/build/kibana/mitreDataQuality/target/public'
- info copying assets from `public/assets` to build
- info copying server source into the build and converting with babel
- info running yarn to install dependencies
- info compressing plugin into [mitreDataQuality-9.2.3.zip]
  succ plugin archive created
+
+Step 2: Building browser bundles...
+✓ Browser bundles compiled successfully
+
+Step 3: Adding bundles to archive...
+✓ Bundles added
+✓ Archive updated: build/mitreDataQuality-9.2.3.zip
+
+=== Build Complete ===
 ```
 
-### Step 3: Install the Plugin
+### Step 4: Install the Plugin
 
 **Option A: Install from local build**
 
@@ -112,7 +122,7 @@ You can also use the pre-built plugin available on GitHub:
 bin/kibana-plugin install https://github.com/Seblhd/mitre-data-quality-kibana-plugin/archive/refs/tags/mitreDataQuality-9.2.3.zip
 ```
 
-### Step 4: Access the Plugin
+### Step 5: Access the Plugin
 
 Once installed successfully, restart Kibana. You will be able to access the **MITRE Data Quality** plugin from the **Security** menu in Kibana.
 
